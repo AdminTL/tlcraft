@@ -1,0 +1,630 @@
+Rem Attribute VBA_ModuleType=VBAFormModule
+Option VBASupport 1
+Public Exp As Integer
+Public HabiliteAct_1 As Integer
+Public ClasseAct_1 As String
+Public ClasseAct_2 As String
+
+Private Sub btnReset_Click()
+        Habilite1_1_1.Value = False
+        Habilite1_1_2.Value = False
+        Habilite1_1_3.Value = False
+        Habilite1_1_4.Value = False
+        Habilite1_1_5.Value = False
+        Habilite1_2_1.Value = False
+        Habilite1_2_2.Value = False
+        Habilite1_2_3.Value = False
+        Habilite1_2_4.Value = False
+        Habilite1_2_5.Value = False
+        Habilite2_1_1.Value = False
+        Habilite2_1_2.Value = False
+        Habilite2_1_3.Value = False
+        Habilite2_1_4.Value = False
+        Habilite2_1_5.Value = False
+        Habilite2_2_1.Value = False
+        Habilite2_2_2.Value = False
+        Habilite2_2_3.Value = False
+        Habilite2_2_4.Value = False
+        Habilite2_2_5.Value = False
+        Endurance1.Value = False
+        Endurance2.Value = False
+        Endurance3.Value = False
+        Energie1.Value = False
+        Energie2.Value = False
+        Energie3.Value = False
+        Habilite1_1.Enabled = True
+        Habilite1_2.Enabled = True
+        Habilite2_1.Enabled = True
+        Habilite2_2.Enabled = True
+        Endurance.Enabled = True
+        Energie.Enabled = True
+        Exp = 0
+        Label1.Caption = CStr(Exp)
+End Sub
+
+Private Sub Classe1_1_Click()
+    If Classe1_1.Value = True Then
+        Worksheets(Classe1_1.Caption).Activate
+        ClasseAct_1 = Classe1_1.Caption
+        Populate_Discipline
+        Classe2_1.Enabled = False
+        Classe2_2.Enabled = True
+        Classe2_3.Enabled = True
+        Classe2_4.Enabled = True
+    End If
+
+End Sub
+
+Private Sub Classe1_2_Click()
+    If Classe1_2.Value = True Then
+        Worksheets(Classe1_2.Caption).Activate
+        ClasseAct_1 = Classe1_2.Caption
+        Populate_Discipline
+        Classe2_1.Enabled = True
+        Classe2_2.Enabled = False
+        Classe2_3.Enabled = True
+        Classe2_4.Enabled = True
+    End If
+End Sub
+
+Private Sub Classe2_1_Click()
+    If Classe2_1.Value = True Then
+        Worksheets(Classe2_1.Caption).Activate
+        ClasseAct_2 = Classe2_1.Caption
+        Populate_Discipline2
+        Classe1_1.Enabled = False
+        Classe1_2.Enabled = True
+        Classe1_3.Enabled = True
+        Classe1_4.Enabled = True
+    End If
+
+End Sub
+
+Private Sub Classe2_2_Click()
+    If Classe2_2.Value = True Then
+        Worksheets(Classe2_2.Caption).Activate
+        ClasseAct_2 = Classe2_2.Caption
+        Populate_Discipline2
+        Classe1_1.Enabled = True
+        Classe1_2.Enabled = False
+        Classe1_3.Enabled = True
+        Classe1_4.Enabled = True
+    End If
+
+End Sub
+
+Private Sub Classe2_3_Click()
+    If Classe2_3.Value = True Then
+        Worksheets(Classe2_3.Caption).Activate
+        ClasseAct_2 = Classe2_3.Caption
+        Populate_Discipline2
+        Classe1_1.Enabled = True
+        Classe1_2.Enabled = True
+        Classe1_3.Enabled = False
+        Classe1_4.Enabled = True
+    End If
+
+End Sub
+
+Private Sub Classe2_4_Click()
+    If Classe2_4.Value = True Then
+        Worksheets(Classe2_4.Caption).Activate
+        ClasseAct_2 = Classe2_4.Caption
+        Populate_Discipline2
+        Classe1_1.Enabled = True
+        Classe1_2.Enabled = True
+        Classe1_3.Enabled = True
+        Classe1_4.Enabled = False
+    End If
+End Sub
+
+Private Sub Frame1_Click()
+    
+End Sub
+
+Private Sub Classe1_3_Click()
+    If Classe1_3.Value = True Then
+        Worksheets(Classe1_3.Caption).Activate
+        ClasseAct_1 = Classe1_3.Caption
+        Populate_Discipline
+        Classe2_1.Enabled = True
+        Classe2_2.Enabled = True
+        Classe2_3.Enabled = False
+        Classe2_4.Enabled = True
+    End If
+End Sub
+
+Private Sub Classe1_4_Click()
+    If Classe1_4.Value = True Then
+        Worksheets(Classe1_4.Caption).Activate
+        ClasseAct_1 = Classe1_4.Caption
+        Populate_Discipline
+        Classe2_1.Enabled = True
+        Classe2_2.Enabled = True
+        Classe2_3.Enabled = True
+        Classe2_4.Enabled = False
+    End If
+End Sub
+
+Private Sub Discipline1_1_Click()
+End Sub
+
+Private Sub Endurance_Click()
+
+End Sub
+
+Private Sub Endurance1_Click()
+    If Endurance1.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+End Sub
+
+Private Sub Endurance2_Click()
+    If Endurance2.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+End Sub
+
+Private Sub Endurance3_Click()
+    If Endurance3.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+End Sub
+
+Private Sub Energie1_Click()
+    If Energie1.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+End Sub
+
+Private Sub Energie2_Click()
+    If Energie2.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+End Sub
+
+Private Sub Energie3_Click()
+    If Energie3.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+End Sub
+
+Private Sub Habilite1_1_1_Click()
+    If Habilite1_1_1.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite1
+End Sub
+
+Private Sub Habilite1_1_2_Click()
+    If Habilite1_1_2.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite1
+End Sub
+
+Private Sub Habilite1_1_3_Click()
+    If Habilite1_1_3.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite1
+End Sub
+
+Private Sub Habilite1_1_4_Click()
+    If Habilite1_1_4.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite1
+End Sub
+
+Private Sub Habilite1_1_5_Click()
+    If Habilite1_1_5.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite1
+End Sub
+
+Private Sub Habilite1_1_Click()
+    
+End Sub
+
+Private Sub Habilite1_2_1_Click()
+    If Habilite1_2_1.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite2
+End Sub
+
+Private Sub Habilite1_2_2_Click()
+    If Habilite1_2_2.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite2
+End Sub
+Private Sub Habilite1_2_3_Click()
+    If Habilite1_2_3.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite2
+End Sub
+Private Sub Habilite1_2_4_Click()
+    If Habilite1_2_4.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite2
+End Sub
+Private Sub Habilite1_2_5_Click()
+    If Habilite1_2_4.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite2
+End Sub
+Private Sub Habilite2_1_1_Click()
+    If Habilite2_1_1.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite3
+End Sub
+Private Sub Habilite2_1_2_Click()
+    If Habilite2_1_2.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite3
+End Sub
+Private Sub Habilite2_1_3_Click()
+    If Habilite2_1_3.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite3
+End Sub
+Private Sub Habilite2_1_4_Click()
+    If Habilite2_1_4.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite3
+End Sub
+Private Sub Habilite2_1_5_Click()
+    If Habilite2_1_5.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite3
+End Sub
+Private Sub Habilite2_2_1_Click()
+    If Habilite2_2_1.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite4
+End Sub
+Private Sub Habilite2_2_2_Click()
+    If Habilite2_2_2.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite4
+End Sub
+Private Sub Habilite2_2_3_Click()
+    If Habilite2_2_3.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite4
+End Sub
+Private Sub Habilite2_2_4_Click()
+    If Habilite2_2_4.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite4
+End Sub
+Private Sub Habilite2_2_5_Click()
+    If Habilite2_2_5.Value = True Then
+        Exp = Exp + 1
+    Else
+        Exp = Exp - 1
+    End If
+    Label1.Caption = CStr(Exp)
+    CheckXP
+    CheckHabilite4
+End Sub
+Private Sub Label1_Click()
+
+End Sub
+
+Private Sub ListeDiscipline1_1_AfterUpdate()
+
+End Sub
+
+Private Sub ListeDiscipline1_1_Click()
+        Worksheets(ClasseAct_1).Activate
+        Habilite1_1_1.Caption = Cells(2, ListeDiscipline1_1.ListIndex() + 1).Value
+        Habilite1_1_2.Caption = Cells(3, ListeDiscipline1_1.ListIndex() + 1).Value
+        Habilite1_1_3.Caption = Cells(4, ListeDiscipline1_1.ListIndex() + 1).Value
+        Habilite1_1_4.Caption = Cells(5, ListeDiscipline1_1.ListIndex() + 1).Value
+        Habilite1_1_5.Caption = Cells(6, ListeDiscipline1_1.ListIndex() + 1).Value
+        Habilite1_1.Visible = True
+        If ListeDiscipline1_1.Value = ListeDiscipline1_2.Value Then
+            Habilite1_1.Visible = False
+        Else
+            Habilite1_1.Visible = True
+        End If
+End Sub
+
+Private Sub ListeDiscipline1_2_Click()
+        Worksheets(ClasseAct_1).Activate
+        Habilite1_2_1.Caption = Cells(2, ListeDiscipline1_2.ListIndex() + 1).Value
+        Habilite1_2_2.Caption = Cells(3, ListeDiscipline1_2.ListIndex() + 1).Value
+        Habilite1_2_3.Caption = Cells(4, ListeDiscipline1_2.ListIndex() + 1).Value
+        Habilite1_2_4.Caption = Cells(5, ListeDiscipline1_2.ListIndex() + 1).Value
+        Habilite1_2_5.Caption = Cells(6, ListeDiscipline1_2.ListIndex() + 1).Value
+        If ListeDiscipline1_2.Value = ListeDiscipline1_1.Value Then
+            Habilite1_2.Visible = False
+        Else
+            Habilite1_2.Visible = True
+        End If
+End Sub
+
+Private Sub ListeDiscipline2_1_Click()
+        Worksheets(ClasseAct_2).Activate
+        Habilite2_1_1.Caption = Cells(2, ListeDiscipline2_1.ListIndex() + 1).Value
+        Habilite2_1_2.Caption = Cells(3, ListeDiscipline2_1.ListIndex() + 1).Value
+        Habilite2_1_3.Caption = Cells(4, ListeDiscipline2_1.ListIndex() + 1).Value
+        Habilite2_1_4.Caption = Cells(5, ListeDiscipline2_1.ListIndex() + 1).Value
+        Habilite2_1_5.Caption = Cells(6, ListeDiscipline2_1.ListIndex() + 1).Value
+        Habilite2_1.Visible = True
+        If ListeDiscipline2_1.Value = ListeDiscipline2_2.Value Then
+            Habilite2_1.Visible = False
+        Else
+            Habilite2_1.Visible = True
+        End If
+End Sub
+
+Private Sub ListeDiscipline2_2_Click()
+        Worksheets(ClasseAct_2).Activate
+        Habilite2_2_1.Caption = Cells(2, ListeDiscipline2_2.ListIndex() + 1).Value
+        Habilite2_2_2.Caption = Cells(3, ListeDiscipline2_2.ListIndex() + 1).Value
+        Habilite2_2_3.Caption = Cells(4, ListeDiscipline2_2.ListIndex() + 1).Value
+        Habilite2_2_4.Caption = Cells(5, ListeDiscipline2_2.ListIndex() + 1).Value
+        Habilite2_2_5.Caption = Cells(6, ListeDiscipline2_2.ListIndex() + 1).Value
+        If ListeDiscipline2_2.Value = ListeDiscipline2_1.Value Then
+            Habilite2_2.Visible = False
+        Else
+            Habilite2_2.Visible = True
+        End If
+End Sub
+
+Private Sub UserForm_Click()
+        
+End Sub
+
+Private Sub XP1_Initialize()
+
+    Exp = 0
+End Sub
+
+Private Sub Populate_Discipline()
+      Dim iCpt As Integer
+      iCpt = 1
+      Habilite1_1.Visible = False
+      Habilite1_2.Visible = False
+      Habilite2_1.Visible = False
+      Habilite2_2.Visible = False
+      Endurance1.Value = False
+      Endurance2.Value = False
+      Endurance3.Value = False
+      Energie1.Value = False
+      Energie2.Value = False
+      Energie3.Value = False
+      Exp = 0
+      Label1.Caption = CStr(Exp)
+      ListeDiscipline1_1.Clear
+      ListeDiscipline1_2.Clear
+      Do While Cells(1, iCpt).Value <> ""
+        ListeDiscipline1_1.AddItem Cells(1, iCpt).Value
+        ListeDiscipline1_2.AddItem Cells(1, iCpt).Value
+        iCpt = iCpt + 1
+      Loop
+      Discipline1_1.Visible = True
+      Discipline1_2.Visible = True
+End Sub
+
+Private Sub Populate_Discipline2()
+      Dim iCpt As Integer
+      iCpt = 1
+      Worksheets(ClasseAct_2).Activate
+      Habilite1_1.Visible = False
+      Habilite1_2.Visible = False
+      Habilite2_1.Visible = False
+      Habilite2_2.Visible = False
+      Endurance1.Value = False
+      Endurance2.Value = False
+      Endurance3.Value = False
+      Energie1.Value = False
+      Energie2.Value = False
+      Energie3.Value = False
+      Exp = 0
+      Label1.Caption = CStr(Exp)
+      ListeDiscipline2_1.Clear
+      ListeDiscipline2_2.Clear
+      Do While Cells(1, iCpt).Value <> ""
+        ListeDiscipline2_1.AddItem Cells(1, iCpt).Value
+        ListeDiscipline2_2.AddItem Cells(1, iCpt).Value
+        iCpt = iCpt + 1
+      Loop
+      Discipline2_1.Visible = True
+      Discipline2_2.Visible = True
+End Sub
+
+Private Sub CheckXP()
+    If Exp = 6 Then
+        Habilite1_1.Enabled = False
+        Habilite1_2.Enabled = False
+        Habilite2_1.Enabled = False
+        Habilite2_2.Enabled = False
+        Endurance.Enabled = False
+        Energie.Enabled = False
+    End If
+End Sub
+
+Private Sub CheckHabilite1()
+    Dim ctl As Control
+    Dim j As Long
+    
+    For Each ctl In Me.Habilite1_1.Controls
+        If TypeOf ctl Is MSForms.CheckBox Then
+            If Me.Controls(ctl.Name).Value = True Then
+                j = j + 1
+            End If
+        End If
+        If j = 3 Then
+            Me.Habilite1_1.Enabled = False
+        Exit For
+End If
+Next
+End Sub
+
+Private Sub CheckHabilite2()
+    Dim ctl As Control
+    Dim j As Long
+    
+    For Each ctl In Me.Habilite1_2.Controls
+        If TypeOf ctl Is MSForms.CheckBox Then
+            If Me.Controls(ctl.Name).Value = True Then
+                j = j + 1
+            End If
+        End If
+        If j = 3 Then
+            Me.Habilite1_2.Enabled = False
+        Exit For
+End If
+Next
+End Sub
+
+Private Sub CheckHabilite3()
+    Dim ctl As Control
+    Dim j As Long
+    
+    For Each ctl In Me.Habilite2_1.Controls
+        If TypeOf ctl Is MSForms.CheckBox Then
+            If Me.Controls(ctl.Name).Value = True Then
+                j = j + 1
+            End If
+        End If
+        If j = 3 Then
+            Me.Habilite2_1.Enabled = False
+        Exit For
+End If
+Next
+End Sub
+Private Sub CheckHabilite4()
+    Dim ctl As Control
+    Dim j As Long
+    
+    For Each ctl In Me.Habilite2_2.Controls
+        If TypeOf ctl Is MSForms.CheckBox Then
+            If Me.Controls(ctl.Name).Value = True Then
+                j = j + 1
+            End If
+        End If
+        If j = 3 Then
+            Me.Habilite2_2.Enabled = False
+        Exit For
+End If
+Next
+End Sub
